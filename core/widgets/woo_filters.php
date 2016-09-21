@@ -1,5 +1,7 @@
 <?php 
 
+if (!class_exists('WC_Widget')) 
+	return ;
 
 class COD_Widget_Layered_Nav extends WC_Widget {
 
@@ -187,6 +189,7 @@ class COD_Widget_Layered_Nav extends WC_Widget {
 			),
 		);
 	}
+
 
 	/**
 	 * widget function.
@@ -528,3 +531,4 @@ add_filter('woocommerce_is_layered_nav_active','cod_woocommerce_is_layered_nav_a
 function cod_woocommerce_is_layered_nav_active($default) {
 	return $default || is_active_widget( false, false, 'cod_woocommerce_layered_nav', true ) ;
 }
+
