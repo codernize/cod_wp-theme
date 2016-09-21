@@ -39,7 +39,7 @@ function add_jquery_script() {
     /////////////
     wp_enqueue_style( 'app-css', 
         get_template_directory_uri() . '/css/app.css', 
-        array(''),
+        array(),
         1
     );  
 

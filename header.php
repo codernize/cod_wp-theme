@@ -4,38 +4,36 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title><?php
-    /*
-     * Print the <title> tag based on what is being viewed.
-     */
-    global $page, $paged;
+        /*
+         * Print the <title> tag based on what is being viewed.
+         */
+        global $page, $paged;
 
-    wp_title( '|', true, 'right' );
+        wp_title( '|', true, 'right' );
 
-    // Add the blog name.
-    bloginfo( 'name' );
+        // Add the blog name.
+        bloginfo( 'name' );
 
-    // Add the blog description for the home/front page.
-    $site_description = get_bloginfo( 'description', 'display' );
-    if ( $site_description && ( is_home() || is_front_page() ) )
-        echo " | $site_description";
+        // Add the blog description for the home/front page.
+        $site_description = get_bloginfo( 'description', 'display' );
+        if ( $site_description && ( is_home() || is_front_page() ) )
+            echo " | $site_description";
 
-    // Add a page number if necessary:
-    if ( $paged >= 2 || $page >= 2 )
-        echo ' | ' . sprintf( __( 'Page %s', 'themename' ), max( $paged, $page ) );
+        // Add a page number if necessary:
+        if ( $paged >= 2 || $page >= 2 )
+            echo ' | ' . sprintf( __( 'Page %s', 'themename' ), max( $paged, $page ) );
 
-    ?></title>
-        
+        ?></title>
+            
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-       
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/app.css">
-        
-        
         <!--[if lt IE 9]>
               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
               <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+       
+        
+        
        
         <?php wp_head(); ?>
     </head>
