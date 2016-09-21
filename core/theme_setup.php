@@ -9,9 +9,49 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add jQuery
  */
 function add_jquery_script() {
-    wp_deregister_script( 'jquery' );
+    ////////////
+    // new js //
+    ////////////
+    /*wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
-    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery' );*/
+    
+    ////////////////
+    // foundation //
+    ////////////////
+    /*wp_enqueue_script(
+        'foundation.min', get_template_directory_uri() . '/js/foundation.min.js',
+        array( 'jquery' ),
+        5,
+        true
+    );  */
+
+    //////////////////
+    // google fonts //
+    //////////////////
+    /*wp_enqueue_style( 'google-fonts', 
+        '//fonts.googleapis.com/css?family=Lato:400,700', 
+        array()
+    );*/
+
+    /////////////
+    // app.css //
+    /////////////
+    wp_enqueue_style( 'app-css', 
+        get_template_directory_uri() . '/css/page.css', 
+        array(''),
+        1
+    );  
+
+    ////////////
+    // app.js //
+    ////////////
+    /*wp_enqueue_script(
+        'app', get_template_directory_uri() . '/js/app.js',
+        $app_js_dep ,
+        1,
+        true
+    );*/
 }    
 add_action('wp_enqueue_scripts', 'add_jquery_script');
 
