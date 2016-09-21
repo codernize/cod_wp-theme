@@ -38,7 +38,7 @@ function add_jquery_script() {
     // app.css //
     /////////////
     wp_enqueue_style( 'app-css', 
-        get_template_directory_uri() . '/css/page.css', 
+        get_template_directory_uri() . '/css/app.css', 
         array(''),
         1
     );  
