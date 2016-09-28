@@ -3,30 +3,28 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+
 /*
- * A default custom post type. DELETE from here to the end if you don't want any custom post types
- */
 add_action('init', 'cod_custom_post_types');
 function cod_custom_post_types() {
-  // icons https://developer.wordpress.org/resource/dashicons/#lightbulb
-  $testim_labels = array(
-        'show_in_nav_menus'  => false ,
-        'publicly_queryable' => true , 
+    // icons https://developer.wordpress.org/resource/dashicons/#lightbulb
+    $book_labels = array(
+            'show_in_nav_menus'  => false ,
+            'publicly_queryable' => true , 
         
-      );
-  $testim_args = array(
-        
-        'menu_icon' => 'dashicons-editor-quote'
-      );
-  _cod_custom_post_types('testimonial',false ,false ,$testim_labels ,$testim_args  ) ;
+        );
+    $book_args = array(
+            'menu_icon' => 'dashicons-editor-quote'
+        );
+    _cod_custom_post_types('book',false ,false ,$book_labels ,$book_args  ) ;
 }
 
+*/
 
 
 
 
-
-
+// finish editing
 
 function _cod_custom_post_types( $cptype = false ,  $single = false, $plural=false, $labels = array() , $args= array()) {
     if ($cptype === false) {

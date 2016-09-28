@@ -3,15 +3,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+// add option page 
+/*
+_cod_acf_options_page(
+	array(
+	   'parent_slug' => 'themes.php'     
+	));
+*/
 
-	_cod_acf_options_page(
-	                    array(
-	                       'parent_slug' => 'themes.php'     
-	                    ));
 
 
-
-
+// finish editing
 function _cod_acf_options_page($args = array()) {
 	if (!function_exists('acf_add_options_page')) 
 		return ;

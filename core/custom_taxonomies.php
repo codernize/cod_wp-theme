@@ -4,8 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
- * A default custom post type. DELETE from here to the end if you don't want any custom post types
- */
 add_action('init', 'cod_custom_taxonomies');
 function cod_custom_taxonomies() {
     
@@ -18,14 +16,14 @@ function cod_custom_taxonomies() {
           
           
         );
-    _cod_custom_taxonomies('book',false ,false ,$book_labels ,$book_args  ) ;
+    _cod_custom_taxonomies('book_year',false ,false ,$book_labels ,$book_args  ) ;
 }
 
+*/
 
 
 
-
-
+// finish editing
 
 
 function _cod_custom_taxonomies( $taxonomy = false ,  $single = false, $plural=false, $labels = array() , $args= array()) {
