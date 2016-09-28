@@ -9,22 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add jQuery
  */
 function add_jquery_script() {
-    ////////////
-    // new js //
-    ////////////
-    /*wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
-    wp_enqueue_script( 'jquery' );*/
     
-    ////////////////
-    // foundation //
-    ////////////////
-    /*wp_enqueue_script(
-        'foundation.min', get_template_directory_uri() . '/js/foundation.min.js',
-        array( 'jquery' ),
-        5,
-        true
-    );  */
 
     //////////////////
     // google fonts //
@@ -42,6 +27,28 @@ function add_jquery_script() {
         array(),
         1
     );  
+
+
+
+    ////////////
+    // new js //
+    ////////////
+    $app_js_dep = array( 'jquery' ) ;
+    /*wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+    wp_enqueue_script( 'jquery' );*/
+    
+    ////////////////
+    // foundation //
+    ////////////////
+    /*wp_enqueue_script(
+        'foundation', get_template_directory_uri() . '/js/foundation.js',
+        array( 'jquery' ),
+        5,
+        true
+    );  
+    $app_js_dep[] = 'foundation';
+    */
 
     ////////////
     // app.js //
