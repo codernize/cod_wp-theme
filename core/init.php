@@ -48,15 +48,14 @@ if (is_admin()) {
 }
 
 // features function
-if (is_admin()) {
-    if (file_exists(get_template_directory() . '/core/features')) {
-        $files = scandir(get_template_directory().'/core/features');
-        foreach ($files as $index => $file) {
-            if (strlen($file) > 4) {
-                if (substr($file, 0 , 1 ) != '_' && strtolower(substr($file, -3)) == 'php') { // is php file and not disabled (starts with _)
-                    include_once get_template_directory().'/core/features/'.$file ;
-                }
+if (file_exists(get_template_directory() . '/core/features')) {
+    $files = scandir(get_template_directory().'/core/features');
+    foreach ($files as $index => $file) {
+        if (strlen($file) > 4) {
+            if (substr($file, 0 , 1 ) != '_' && strtolower(substr($file, -3)) == 'php') { // is php file and not disabled (starts with _)
+                include_once get_template_directory().'/core/features/'.$file ;
             }
         }
     }
 }
+
