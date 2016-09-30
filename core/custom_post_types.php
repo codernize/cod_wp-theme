@@ -7,14 +7,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 add_action('init', 'cod_custom_post_types');
 function cod_custom_post_types() {
-    // icons https://developer.wordpress.org/resource/dashicons/#lightbulb
     $book_labels = array(
-            'show_in_nav_menus'  => false ,
-            'publicly_queryable' => true , 
         
         );
+    // icons https://developer.wordpress.org/resource/dashicons/#lightbulb
     $book_args = array(
             'menu_icon' => 'dashicons-editor-quote'
+            'publicly_queryable' => true , 
+            'show_in_nav_menus'  => false ,
         );
     _cod_custom_post_types('book',false ,false ,$book_labels ,$book_args  ) ;
 }
