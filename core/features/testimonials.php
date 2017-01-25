@@ -3,9 +3,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-add_image_size( 'testimonial-author', 56, 56,true);
+if (function_exists('_cod_custom_post_types')) {
+    add_image_size( 'testimonial-author', 56, 56,true);
+    add_action('init', 'cod_init_testimonials_post_types');
+} // endif
 
-add_action('init', 'cod_init_testimonials_post_types');
 function cod_init_testimonials_post_types() {
     // icons https://developer.wordpress.org/resource/dashicons/#lightbulb
     $service_labels = array(

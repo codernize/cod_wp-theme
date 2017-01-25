@@ -3,9 +3,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-add_image_size( 'member', 450, 521,true);
-
-add_action('init', 'cod_init_members_post_types');
+if (function_exists('_cod_custom_post_types')) {
+    add_image_size( 'member', 450, 521,true);
+    add_action('init', 'cod_init_members_post_types');
+} // endif
+   
 function cod_init_members_post_types() {
     // icons https://developer.wordpress.org/resource/dashicons/#lightbulb
     $service_labels = array(
