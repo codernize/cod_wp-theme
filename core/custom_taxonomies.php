@@ -26,7 +26,7 @@ function cod_custom_taxonomies() {
 // finish editing
 
 
-function _cod_custom_taxonomies( $taxonomy = false ,  $single = false, $plural=false, $labels = array() , $args= array()) {
+function _cod_custom_taxonomies( $taxonomy = false, $post_types = array() ,  $single = false, $plural=false, $labels = array() , $args= array()) {
     if ($taxonomy === false) {
         return ;
     } else {
@@ -83,5 +83,5 @@ function _cod_custom_taxonomies( $taxonomy = false ,  $single = false, $plural=f
     ); 
     $args = wp_parse_args($args, $default_args);
 
-    register_taxonomy($taxonomy ,$args);
+    register_taxonomy($taxonomy , $post_types ,$args);
 }
