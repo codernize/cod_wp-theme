@@ -56,6 +56,11 @@ function cod_row_shortcode( $atts, $content = "" ) {
 }
 add_shortcode( 'row', 'cod_row_shortcode' );
 
+function content_shortcode( $atts ){
+    return get_the_content();
+}
+add_shortcode( 'content', 'content_shortcode' );
+
 
 add_action('init','cod_custom_wpautop',90);
 
