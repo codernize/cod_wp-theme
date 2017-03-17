@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // add option page 
-/*
+
 _cod_acf_options_page(
 	array(
 	   'parent_slug' => 'themes.php'     
 	));
-*/
+
 
 
 
@@ -61,4 +61,23 @@ function _cod_acf_options_page($args = array()) {
 	);
 	$args = wp_parse_args($args,$defaults);
 	acf_add_options_page($args);
+}
+
+add_action('code_inside_head','code_inside_head');
+function code_inside_head() {
+	the_field('code_inside_head','options');
+	// Code Inside Head
+	// Insert code in the head tag, inside &lt;head&gt;
+}
+add_action('code_inside_body_at_top','code_inside_body_at_top');
+function code_inside_body_at_top() {
+	the_field('code_inside_body_at_top','options'); 
+	// Code Inside Body at Top
+	// Insert code after opening body tag, after &lt;body&gt;
+}
+add_action('code_inside_body_at_bottom','code_inside_body_at_bottom');
+function code_inside_body_at_bottom() {
+	the_field('code_inside_body_at_bottom','options');
+	// Code Inside Body at Bottom
+	// Insert body before closing body tag, before &lt;/body&gt;
 }
