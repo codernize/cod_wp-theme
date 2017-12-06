@@ -5,6 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+
+
 /**
  * add columns shortcode
  */
@@ -21,8 +23,11 @@ function cod_columns_shortcode( $atts, $content = "" ) {
     if (substr($content, -6) == '<br />') {
         $content = substr($content,0, -6);
     }
-    
-    $content = '<div class="columns ' . implode(' ', $atts   ) . '">' . 
+    $other_classes = implode(' ', $atts   );
+    if (strpos($other_classes, 'small') === FALSE) { // default to small-12
+        $other_classes .= ' small-12';
+    } // end if 
+    $content = '<div class="columns ' . $other_classes . '">' . 
         do_shortcode( ( trim( $content ) )) 
         . '</div>';
     ;
@@ -46,7 +51,9 @@ function cod_row_shortcode( $atts, $content = "" ) {
     if (substr($content, -6) == '<br />') {
         $content = substr($content,0, -6);
     }
-    $content = '<div class="row ' . implode(' ', $atts   ) . '">' . 
+    $other_classes = implode(' ', $atts   );
+    
+    $content = '<div class="row ' . $other_classes . '">' . 
         do_shortcode( ( trim( $content ) )) 
         . '</div>';
     ;
@@ -55,6 +62,7 @@ function cod_row_shortcode( $atts, $content = "" ) {
 
 }
 add_shortcode( 'row', 'cod_row_shortcode' );
+
 
 function content_shortcode( $atts ){
     return get_the_content();

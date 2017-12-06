@@ -53,3 +53,120 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+
+// default styling
+
+
+body > .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-repeat: no-repeat;
+    background-position: center center ;
+    background-size: cover ;
+
+    @include breakpoint(medium) {
+        padding-top: 64px;
+        padding-bottom: 70px;
+    } // end breakpoint medium
+    @include breakpoint(large) {
+        padding-top: 84px;
+        padding-bottom: 90px;
+    } // end breakpoint large
+    &.white-text {
+        h1,h2,h3,h4,h5,p,li {
+            color: #fff;
+
+        }
+        .button.hollow {
+            color: #fff;
+            &.white {
+                &:hover,
+                &:focus {
+                    color: $primary-color;
+                }
+            }
+        }
+        select {
+            background: transparent;
+            border-color: white;
+            color: white;
+
+            option {
+                color: white;
+            }
+            &:focus {
+                background-color: white;
+                color: $medium-gray;
+                option {
+                    color: $medium-gray;
+
+                }
+            }
+        }
+        [type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
+            border-color: #fffefe;
+            color: #fff;
+            &::placeholder {
+              color: #fffefe;
+            }
+            &:focus {
+                color: black;
+                &::placeholder {
+                    color : $medium-gray;
+                }
+
+            }
+        }
+        
+    }
+
+
+    
+    iframe {
+        width: 100%;
+        height: auto;
+        min-height:450px;
+    }
+    
+}
+
+body.logged-in.admin-bar {
+    #header {
+        top: 32px;
+    }
+    & > section[data-admshownr] {
+        border-left:30px solid #dadada;
+        &:before {
+            width: 20px;
+            height: 20px;
+            content: attr(data-admshownr);
+            position: absolute;
+            top: 50%;
+            // top: -10px;
+            left: -26px;
+            // background-color: #9c0303 ;
+            text-align: center;
+            font-size: 14px;
+            line-height: 18px;
+            border-radius: 50%;
+                color: #fff;
+            z-index: 20;
+
+        }
+        &:nth-child(2n+1) {
+            border-left:30px solid #f4f4f4;
+            &:before {
+                // background-color: #03139c;
+                color: #666;
+            }
+        } // end nth-child(2n+1)
+
+    }
+    .reveal.full {
+        .close-button {
+            top: 2.5rem;
+        }
+    }
+
+} 
