@@ -65,3 +65,17 @@ function data_interchange($image = array(), $echo = true, $max_sizes = array()) 
     else return $return ;
    
 }
+
+
+function feature_image_to_bg($post_id = false,$echo = true, $sizes = array()){
+    if (false == $post_id) {
+        global $post;
+        $post_id = $post->ID;
+    } // end if 
+    if (has_post_thumbnail($post_id)) {
+        // global $post;
+        data_interchange(acf_get_attachment(get_post(get_post_thumbnail_id($post_id ))),$echo,$sizes);
+        return true;
+    }
+    else return false;
+}

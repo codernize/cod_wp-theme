@@ -6,6 +6,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
+function cod_social_icons( $atts, $content = "" ) {
+    $atts = (array)$atts;
+    array_walk($atts, 'esc_attr') ;
+    $links = get_field('social_icons','options');
+    $content = '';
+    if (!empty($atts) && in_array('list', $atts)) {
+        if (!empty($links)) {
+            $content = '<ul class="inline social-icons-container ' . implode(' ', $atts   ) . '">' ;
+            foreach ($links as $link) {
+                $content .= '<li><a href="'.$link['link'].'"><i class="fa fa-'.$link['type'].'" target="_blank" aria-hidden="true">&nbsp;</i></a></li>';
+            } // end foreach 
+            $content .= '</ul>';
+        } // end if 
+    } else {
+        if (!empty($links)) {
+            $content = '<p class="social-icons-container">';
+            foreach ($links as $link) {
+                $content .= '<a href="'.$link['link'].'"><i class="fa fa-'.$link['type'].'" target="_blank" aria-hidden="true">&nbsp;</i></a>';
+            }
+            $content .='</p>';
+        }
+    } // end if 
+    
+        
+    
+    return $content;
+}
+add_shortcode( 'social_icons', 'cod_social_icons' );
+
+
+
+
 
 /**
  * add columns shortcode
@@ -23,11 +55,22 @@ function cod_columns_shortcode( $atts, $content = "" ) {
     if (substr($content, -6) == '<br />') {
         $content = substr($content,0, -6);
     }
+
+    // data interchange. Add interchange=12 to add data-interchange for that image ID
+    $interchange = false ;
+    if (isset($atts['interchange'])) {
+        if (function_exists('data_interchange') && function_exists('acf_get_attachment')) {
+            $interchange = data_interchange(acf_get_attachment(get_post(get_post_thumbnail_id( $atts['interchange'] ))),false);
+        } // end if 
+        $atts[] = 'interchange interchange-for-'.$atts['interchange']; // add extra classes
+        unset($atts['interchange']); // because it will be a number, so remove it
+        
+    } // end if 
     $other_classes = implode(' ', $atts   );
     if (strpos($other_classes, 'small') === FALSE) { // default to small-12
         $other_classes .= ' small-12';
     } // end if 
-    $content = '<div class="columns ' . $other_classes . '">' . 
+    $content = '<div class="columns ' . $other_classes . '" '.$interchange.'>' . 
         do_shortcode( ( trim( $content ) )) 
         . '</div>';
     ;
@@ -51,6 +94,17 @@ function cod_row_shortcode( $atts, $content = "" ) {
     if (substr($content, -6) == '<br />') {
         $content = substr($content,0, -6);
     }
+    // data interchange. Add interchange=12 to add data-interchange for that image ID
+    $interchange = false ;
+    if (isset($atts['interchange'])) {
+        if (function_exists('data_interchange') && function_exists('acf_get_attachment')) {
+            $interchange = data_interchange(acf_get_attachment(get_post(get_post_thumbnail_id( $atts['interchange'] ))),false);
+        } // end if 
+        $atts[] = 'interchange interchange-for-'.$atts['interchange']; // add extra classes
+        unset($atts['interchange']); // because it will be a number, so remove it
+        
+    } // end if 
+    
     $other_classes = implode(' ', $atts   );
     
     $content = '<div class="row ' . $other_classes . '">' . 
@@ -68,6 +122,11 @@ function content_shortcode( $atts ){
     return get_the_content();
 }
 add_shortcode( 'content', 'content_shortcode' );
+
+function title_shortcode( $atts ){
+    return get_the_title();
+}
+add_shortcode( 'title', 'title_shortcode' );
 
 
 add_action('init','cod_custom_wpautop',90);

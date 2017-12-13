@@ -1,0 +1,73 @@
+
+
+/* FAQS Section */
+.faq {
+    // background: #f6f2e9;
+}
+
+.faq .faq-list {
+    margin-top: 30px;
+}
+
+.faq .faq-list.one-half {
+    margin-left: 0;
+}
+
+.faq .faq-list.column-2 {
+    margin-left: 2.564102564102564%;
+    float: right;
+}
+
+.faq .faq-list .accordion {
+    margin-bottom: 4px;
+}
+
+.faq .faq-list [data-control] {
+    background: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.faq .faq-list [data-control]:after {
+    content: '+';
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.faq .faq-list .accordion.open [data-control] {
+    // color: #c34b16;
+    color: $primary-color;
+
+}
+.faq .faq-list .accordion.open [data-control]:after {
+    content: '-';
+    color: #2e2e2e;
+}
+
+.faq .faq-list [data-content] {
+    background: #fff;
+    padding: 0 35px;
+    position: relative;
+}
+
+.faq .faq-list [data-content] p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    position: relative;
+}
+
+    .faq .faq-list [data-content] p:before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        // background: #c34b16;
+        background: $primary-color ;
+        left: -14px;
+    }
