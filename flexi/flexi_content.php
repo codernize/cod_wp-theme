@@ -8,6 +8,11 @@
                             '' : 
                             'background-color:'.$value['content__background_color'].';';
     if (!empty($value['content__custom_css'])) {
+        // if white-text in custom css, then make it a class
+        $value['content__custom_css'] = str_replace('white-text', '', $value['content__custom_css'] , $has_white_text);
+        if ($has_white_text) {
+          $class .= " white-text";
+        } // end if 
         $custom_css = str_replace(
                             array(
                                 "\r\n"  ,
