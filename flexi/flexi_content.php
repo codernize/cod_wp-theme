@@ -34,7 +34,7 @@
 <section class="<?php echo $class ?>" <?php echo $custom_style ?> <?php data_interchange($value['content__background_image']); ?>>
         <div class="row">
             <div class="columns">
-            <?php echo wpautop(do_shortcode($value['content__content']),false); ?>
+            <?php echo force_balance_tags(wpautop(do_shortcode($value['content__content']),false)); ?>
             </div> <!-- /.columns -->
         </div> <!-- /.row -->
 </section>
