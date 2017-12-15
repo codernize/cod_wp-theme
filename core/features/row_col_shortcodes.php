@@ -70,6 +70,10 @@ function cod_columns_shortcode( $atts, $content = "" ) {
     if (strpos($other_classes, 'small') === FALSE) { // default to small-12
         $other_classes .= ' small-12';
     } // end if 
+    
+    // remove loose ending p tags
+    $content = force_balance_tags($content);
+
     $content = '<div class="columns ' . $other_classes . '" '.$interchange.'>' . 
         do_shortcode( ( trim( $content ) )) 
         . '</div>';
@@ -106,6 +110,9 @@ function cod_row_shortcode( $atts, $content = "" ) {
     } // end if 
     
     $other_classes = implode(' ', $atts   );
+    
+    // remove loose ending p tags
+    $content = force_balance_tags($content);
     
     $content = '<div class="row ' . $other_classes . '">' . 
         do_shortcode( ( trim( $content ) )) 
