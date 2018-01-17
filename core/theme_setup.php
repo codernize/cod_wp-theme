@@ -162,3 +162,10 @@ function ac_remove_cf7_scripts() {
         wp_deregister_script( 'contact-form-7' );
     }
 }
+
+
+// force medium to crop
+if(!get_option("medium_crop"))
+    add_option("medium_crop", "1");
+else
+    update_option("medium_crop", "1");
