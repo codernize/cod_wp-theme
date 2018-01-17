@@ -3,6 +3,7 @@
 .fsi { font-style: italic; }
 .clear { clear: both; }
 .clearfix { @include clearfix(); }
+.ttu { text-transform: uppercase; }
 // font weight
 $fw : (100,300,400,500,700,900) ;
 @each $curent_font_weight in $fw {
@@ -37,7 +38,7 @@ $fz_breaks : (
                     
             } @else {
                 @include breakpoint($fz_break_point) {
-                    // font-size: #{$fz_break_size}px;
+                    
                     $temp_fz : $fz_break_size + $temp_reduct ;
                     @if $fz_break_point == 'xlarge' and $fz_now >= $fz_break_size {
                         $temp_fz : $fz_now ;
@@ -80,6 +81,34 @@ a.alignleft, img.alignleft, .wp-caption.alignleft { margin: 0 24px 24px 0; }
 .aligncenter { margin: 0 auto 20px; display: block;width: auto; }
 
     
-.color-primary {
-    color: $primary-color;
+// color
+.color-white        { color: #fff;              } 
+.color-primary      { color: $primary-color;    }  
+.color-secondary    { color: $secondary-color;  }   
+
+// background
+.background-white       { background-color: #fff;               }
+.background-primary     { background-color: $primary-color;     }
+.background-secondary   { background-color: $secondary-color;   }
+
+
+.star-ratings-sprite {
+    // background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    background: url('../images/star-rating-sprite.png') repeat-x;
+    font-size: 0;
+    height: 21px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 110px;
+      margin: 0 auto;
+  
+    .star-ratings-sprite-rating {
+        background: inherit;
+        background-position: 0 100%;
+        float: left;
+        height: 21px;
+        display:block;
+    }
+  
 }

@@ -265,3 +265,21 @@ function custom_breadcrumbs() {
     }
        
 }
+
+/*
+	retrun a star rating
+ */
+function star_rating($rating = 5,$max = 5, $echo = true) {
+	if ($rating > $max)
+		$rating = $max ;
+
+	$percentage = ceil($rating * 100 / $max);
+
+	$return = '<div class="star-ratings-sprite"><span style="width:'.$percentage.'%" class="star-ratings-sprite-rating"></span></div>';
+
+	if ($echo) {
+		echo $return ;
+	} else {
+		return $return ;
+	} // end if 
+}
