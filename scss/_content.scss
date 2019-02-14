@@ -46,6 +46,8 @@ $fz_breaks : (
                     @if $temp_fz <= $fz_now {
                         font-size: #{$temp_fz}px;
                         
+                    } @else {
+                        font-size: #{$fz_now}px;
                     }
                 } // end breakpoint $fz_break_point
 

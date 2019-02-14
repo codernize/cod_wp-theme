@@ -82,7 +82,7 @@ function _cod_custom_post_types( $cptype = false ,  $single = false, $plural=fal
         100 - below second separator*/
       'menu_icon' => true, // (string) (optional) The url to the icon to be used for this menu or the name of the icon from the iconfont  https://developer.wordpress.org/resource/dashicons/#album
       'capability_type' => 'page', // (string or array) (optional) The string to use to build the read, edit, and delete capabilities. 
-
+      // 'taxonomies' => ('category'), // add custom taxonomy
       'query_var' => true,
       'rewrite' => true,
       'hierarchical' => false,
