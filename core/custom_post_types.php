@@ -86,6 +86,7 @@ function _cod_custom_post_types( $cptype = false ,  $single = false, $plural=fal
       'query_var' => true,
       'rewrite' => true,
       'hierarchical' => false,
+      'has_archive' => false,
       'supports' => array('title','editor','excerpt','revisions','thumbnail','author','custom-fields','comments')
     ); 
     $args = wp_parse_args($args, $default_args);
