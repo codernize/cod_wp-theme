@@ -1,3 +1,8 @@
+// veni vidi codi
+// gulpfile with gulp 4 keeping old system working
+
+"use strict";
+
 // Include gulp
 var gulp = require('gulp');
 
