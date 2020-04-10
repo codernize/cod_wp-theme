@@ -22,3 +22,54 @@ function cod_init_testimonials_post_types() {
         );
     _cod_custom_post_types('testimonial',false ,false ,$service_labels ,$service_args  ) ;
 }
+
+
+
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+    'key' => 'group_5a3122355c287',
+    'title' => 'Testimonial :: Settings',
+    'fields' => array(
+        array(
+            'key' => 'field_5a312243212b6',
+            'label' => 'Ocupation',
+            'name' => 'ocupation',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'testimonial',
+            ),
+        ),
+    ),
+    'menu_order' => 0,
+    'position' => 'acf_after_title',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => 1,
+    'description' => '',
+));
+
+endif;
